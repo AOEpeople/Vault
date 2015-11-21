@@ -17,7 +17,7 @@ class EncryptCommand extends Command
     protected function configure()
     {
         $this
-            ->setName('encrypt')
+            ->setName('vault:encrypt')
             ->setDescription('Encrypt file')
             ->addArgument(
                 'plainTextFilePath',

@@ -17,7 +17,7 @@ class DecryptCommand extends Command
     protected function configure()
     {
         $this
-            ->setName('decrypt')
+            ->setName('vault:decrypt')
             ->setDescription('Decrypt file')
             ->addArgument(
                 'encryptedFilePath',
