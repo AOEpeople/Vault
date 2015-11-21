@@ -9,8 +9,7 @@
   ],
   "require": {
     "symfony/console": "*",
-    "archwisp/php-encrypt-data": "*",
-    "symfony/yaml": "*"
+    "archwisp/php-encrypt-data": "*"
   },
   "autoload": {
     "psr-4": {

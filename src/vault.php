@@ -12,4 +12,7 @@ use Symfony\Component\Console\Application;
 
 $app = new Application('Vault', '@package_version@');
 
+$app->add(new \Vault\Command\EncryptCommand);
+$app->add(new \Vault\Command\DecryptCommand);
+
 $app->run();
