@@ -1,0 +1,21 @@
+{
+  "name": "aoepeople/vault",
+  "description": "Vault",
+  "authors": [
+    {
+      "name": "Fabrizio Branca",
+      "email": "firstname.lastname@aoe.com"
+    }
+  ],
+  "require": {
+    "symfony/console": "*",
+    "archwisp/php-encrypt-data": "*",
+    "symfony/yaml": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "": "src"
+    }
+  },
+  "bin": ["src/vault.php"]
+}
