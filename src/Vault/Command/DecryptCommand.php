@@ -9,6 +9,7 @@ use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
+use Symfony\Component\Console\Question\ConfirmationQuestion;
 use Vault\Vault;
 
 class DecryptCommand extends Command
@@ -41,13 +42,9 @@ class DecryptCommand extends Command
     {
         $plainTextFilePath = $input->getArgument('plainTextFilePath');
         if (is_file($plainTextFilePath) && !$input->getOption('force')) {
-            $dialog = $this->getHelper('dialog');
-            $confirmed = $dialog->askConfirmation(
-                $output,
-                "File '$plainTextFilePath' already exists. Do you want to overwrite it? [y/N] ",
-                false
-            );
-            if (!$confirmed) {
+            $helper = $this->getHelper('question');
+            $question = new ConfirmationQuestion("File '$plainTextFilePath' already exists. Do you want to overwrite it? [y/N] ", false);
+            if (!$helper->ask($input, $output, $question)) {
                 throw new \Exception('Operation aborted');
             }
         }
